@@ -4,7 +4,6 @@ gym==0.21.0
 idna==2.7
 imageio
 lbforaging
-matplotlib
 mpyq==0.2.5
 numpy
 pbr==4.3.0
