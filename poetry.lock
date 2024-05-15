@@ -55,6 +55,17 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "cmake"
+version = "3.29.3"
+description = "CMake is an open-source, cross-platform family of tools designed to build, test and package software"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["coverage (>=4.2)", "pytest (>=3.0.3)", "pytest-cov (>=2.4.0)"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -116,6 +127,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "einops"
+version = "0.8.0"
+description = "A new flavour of deep learning operations"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
 name = "enum34"
 version = "1.1.10"
 description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
@@ -157,38 +176,6 @@ type1 = ["xattr"]
 ufo = ["fs (>=2.2.0,<3)"]
 unicode = ["unicodedata2 (>=15.1.0)"]
 woff = ["zopfli (>=0.1.4)", "brotlicffi (>=0.8.0)", "brotli (>=1.0.1)"]
-
-[[package]]
-name = "fsspec"
-version = "2024.3.1"
-description = "File-system specification"
-category = "main"
-optional = false
-python-versions = ">=3.8"
-
-[package.extras]
-abfs = ["adlfs"]
-adl = ["adlfs"]
-arrow = ["pyarrow (>=1)"]
-dask = ["dask", "distributed"]
-devel = ["pytest", "pytest-cov"]
-dropbox = ["dropboxdrivefs", "requests", "dropbox"]
-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "dask", "distributed", "dropbox", "dropboxdrivefs", "fusepy", "gcsfs", "libarchive-c", "ocifs", "panel", "paramiko", "pyarrow (>=1)", "pygit2", "requests", "s3fs", "smbprotocol", "tqdm"]
-fuse = ["fusepy"]
-gcs = ["gcsfs"]
-git = ["pygit2"]
-github = ["requests"]
-gs = ["gcsfs"]
-gui = ["panel"]
-hdfs = ["pyarrow (>=1)"]
-http = ["aiohttp (!=4.0.0a0,!=4.0.0a1)"]
-libarchive = ["libarchive-c"]
-oci = ["ocifs"]
-s3 = ["s3fs"]
-sftp = ["paramiko"]
-smb = ["smbprotocol"]
-ssh = ["paramiko"]
-tqdm = ["tqdm"]
 
 [[package]]
 name = "future"
@@ -286,14 +273,6 @@ test = ["pytest", "pytest-cov", "fsspec"]
 tifffile = ["tifffile"]
 
 [[package]]
-name = "intel-openmp"
-version = "2021.4.0"
-description = "Intel OpenMP* Runtime Library"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "jinja2"
 version = "3.1.4"
 description = "A very fast and expressive template engine."
@@ -345,6 +324,14 @@ pyglet = "*"
 test = ["pytest"]
 
 [[package]]
+name = "lit"
+version = "18.1.4"
+description = "A Software Testing Tool"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.5"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -371,18 +358,6 @@ pillow = ">=6.2.0"
 pyparsing = ">=2.2.1"
 python-dateutil = ">=2.7"
 setuptools_scm = ">=7"
-
-[[package]]
-name = "mkl"
-version = "2021.4.0"
-description = "Intel® oneAPI Math Kernel Library"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-intel-openmp = ">=2021.0.0,<2022.0.0"
-tbb = ">=2021.0.0,<2022.0.0"
 
 [[package]]
 name = "mock"
@@ -441,17 +416,17 @@ yaml = ["PyYAML (>=5.1.0)"]
 
 [[package]]
 name = "networkx"
-version = "3.3"
+version = "3.2.1"
 description = "Python package for creating and manipulating graphs and networks"
 category = "main"
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.9"
 
 [package.extras]
-default = ["numpy (>=1.23)", "scipy (>=1.9,!=1.11.0,!=1.11.1)", "matplotlib (>=3.6)", "pandas (>=1.4)"]
-developer = ["changelist (==0.5)", "pre-commit (>=3.2)", "mypy (>=1.1)", "rtoml"]
-doc = ["sphinx (>=7)", "pydata-sphinx-theme (>=0.14)", "sphinx-gallery (>=0.14)", "numpydoc (>=1.7)", "pillow (>=9.4)", "texext (>=0.6.7)", "myst-nb (>=1.0)"]
-extra = ["lxml (>=4.6)", "pygraphviz (>=1.12)", "pydot (>=2.0)", "sympy (>=1.10)"]
+default = ["numpy (>=1.22)", "scipy (>=1.9,!=1.11.0,!=1.11.1)", "matplotlib (>=3.5)", "pandas (>=1.4)"]
+developer = ["changelist (==0.4)", "pre-commit (>=3.2)", "mypy (>=1.1)", "rtoml"]
+doc = ["sphinx (>=7)", "pydata-sphinx-theme (>=0.14)", "sphinx-gallery (>=0.14)", "numpydoc (>=1.6)", "pillow (>=9.4)", "nb2plots (>=0.7)", "texext (>=0.6.7)", "nbconvert (<7.9)"]
+extra = ["lxml (>=4.6)", "pygraphviz (>=1.11)", "pydot (>=1.4.2)", "sympy (>=1.10)"]
 test = ["pytest (>=7.2)", "pytest-cov (>=4.0)"]
 
 [[package]]
@@ -463,107 +438,88 @@ optional = false
 python-versions = ">=3.9"
 
 [[package]]
-name = "nvidia-cublas-cu12"
-version = "12.1.3.1"
+name = "nvidia-cublas-cu11"
+version = "11.10.3.66"
 description = "CUBLAS native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-cuda-cupti-cu12"
-version = "12.1.105"
+name = "nvidia-cuda-cupti-cu11"
+version = "11.7.101"
 description = "CUDA profiling tools runtime libs."
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-cuda-nvrtc-cu12"
-version = "12.1.105"
+name = "nvidia-cuda-nvrtc-cu11"
+version = "11.7.99"
 description = "NVRTC native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-cuda-runtime-cu12"
-version = "12.1.105"
+name = "nvidia-cuda-runtime-cu11"
+version = "11.7.99"
 description = "CUDA Runtime native Libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-cudnn-cu12"
-version = "8.9.2.26"
+name = "nvidia-cudnn-cu11"
+version = "8.5.0.96"
 description = "cuDNN runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
-[package.dependencies]
-nvidia-cublas-cu12 = "*"
-
 [[package]]
-name = "nvidia-cufft-cu12"
-version = "11.0.2.54"
+name = "nvidia-cufft-cu11"
+version = "10.9.0.58"
 description = "CUFFT native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-curand-cu12"
-version = "10.3.2.106"
+name = "nvidia-curand-cu11"
+version = "10.2.10.91"
 description = "CURAND native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-cusolver-cu12"
-version = "11.4.5.107"
+name = "nvidia-cusolver-cu11"
+version = "11.4.0.1"
 description = "CUDA solver native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
-[package.dependencies]
-nvidia-cublas-cu12 = "*"
-nvidia-cusparse-cu12 = "*"
-nvidia-nvjitlink-cu12 = "*"
-
 [[package]]
-name = "nvidia-cusparse-cu12"
-version = "12.1.0.106"
+name = "nvidia-cusparse-cu11"
+version = "11.7.4.91"
 description = "CUSPARSE native runtime libraries"
 category = "main"
 optional = false
 python-versions = ">=3"
 
-[package.dependencies]
-nvidia-nvjitlink-cu12 = "*"
-
 [[package]]
-name = "nvidia-nccl-cu12"
-version = "2.20.5"
+name = "nvidia-nccl-cu11"
+version = "2.14.3"
 description = "NVIDIA Collective Communication Library (NCCL) Runtime"
 category = "main"
 optional = false
 python-versions = ">=3"
 
 [[package]]
-name = "nvidia-nvjitlink-cu12"
-version = "12.4.127"
-description = "Nvidia JIT LTO Library"
-category = "main"
-optional = false
-python-versions = ">=3"
-
-[[package]]
-name = "nvidia-nvtx-cu12"
-version = "12.1.105"
+name = "nvidia-nvtx-cu11"
+version = "11.7.91"
 description = "NVIDIA Tools Extension"
 category = "main"
 optional = false
@@ -862,6 +818,7 @@ python-versions = ">=3.8"
 [package.dependencies]
 packaging = ">=20"
 tomli = {version = ">=1", markers = "python_version < \"3.11\""}
+typing-extensions = {version = "*", markers = "python_version < \"3.10\""}
 
 [package.extras]
 docs = ["entangled-cli (>=2.0,<3.0)", "mkdocs", "mkdocs-entangled-plugin", "mkdocs-material", "mkdocstrings", "pygments"]
@@ -945,14 +902,6 @@ python-versions = ">=3.8"
 mpmath = ">=0.19"
 
 [[package]]
-name = "tbb"
-version = "2021.12.0"
-description = "Intel® oneAPI Threading Building Blocks (oneTBB)"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "tensorboard-logger"
 version = "0.1.0"
 description = "Log TensorBoard events without Tensorflow"
@@ -977,7 +926,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "torch"
-version = "2.3.0"
+version = "2.0.0"
 description = "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
 category = "main"
 optional = false
@@ -985,44 +934,36 @@ python-versions = ">=3.8.0"
 
 [package.dependencies]
 filelock = "*"
-fsspec = "*"
 jinja2 = "*"
-mkl = {version = ">=2021.1.1,<=2021.4.0", markers = "platform_system == \"Windows\""}
 networkx = "*"
-nvidia-cublas-cu12 = {version = "12.1.3.1", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cuda-cupti-cu12 = {version = "12.1.105", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cuda-nvrtc-cu12 = {version = "12.1.105", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cuda-runtime-cu12 = {version = "12.1.105", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cudnn-cu12 = {version = "8.9.2.26", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cufft-cu12 = {version = "11.0.2.54", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-curand-cu12 = {version = "10.3.2.106", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cusolver-cu12 = {version = "11.4.5.107", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-cusparse-cu12 = {version = "12.1.0.106", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-nccl-cu12 = {version = "2.20.5", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
-nvidia-nvtx-cu12 = {version = "12.1.105", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cublas-cu11 = {version = "11.10.3.66", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cuda-cupti-cu11 = {version = "11.7.101", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cuda-nvrtc-cu11 = {version = "11.7.99", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cuda-runtime-cu11 = {version = "11.7.99", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cudnn-cu11 = {version = "8.5.0.96", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cufft-cu11 = {version = "10.9.0.58", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-curand-cu11 = {version = "10.2.10.91", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cusolver-cu11 = {version = "11.4.0.1", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-cusparse-cu11 = {version = "11.7.4.91", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-nccl-cu11 = {version = "2.14.3", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+nvidia-nvtx-cu11 = {version = "11.7.91", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
 sympy = "*"
-triton = {version = "2.3.0", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.12\""}
-typing-extensions = ">=4.8.0"
+triton = {version = "2.0.0", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+typing-extensions = "*"
 
 [package.extras]
 opt-einsum = ["opt-einsum (>=3.3)"]
-optree = ["optree (>=0.9.1)"]
 
 [[package]]
-name = "torchvision"
-version = "0.18.0"
-description = "image and video datasets and models for torch deep learning"
+name = "torch-scatter"
+version = "2.1.2"
+description = "PyTorch Extension Library of Optimized Scatter Operations"
 category = "main"
 optional = false
 python-versions = ">=3.8"
 
-[package.dependencies]
-numpy = "*"
-pillow = ">=5.3.0,<8.3.0 || >=8.4.0"
-torch = "2.3.0"
-
 [package.extras]
-scipy = ["scipy"]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "tornado"
@@ -1034,19 +975,21 @@ python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, != 3.3.*"
 
 [[package]]
 name = "triton"
-version = "2.3.0"
+version = "2.0.0"
 description = "A language and compiler for custom Deep Learning operations"
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
+cmake = "*"
 filelock = "*"
+lit = "*"
+torch = "*"
 
 [package.extras]
-build = ["cmake (>=3.20)", "lit"]
-tests = ["autopep8", "flake8", "isort", "numpy", "pytest", "scipy (>=1.7.1)", "torch"]
-tutorials = ["matplotlib", "pandas", "tabulate", "torch"]
+tests = ["autopep8", "flake8", "isort", "numpy", "pytest", "scipy (>=1.7.1)"]
+tutorials = ["matplotlib", "pandas", "tabulate"]
 
 [[package]]
 name = "typing-extensions"
@@ -1097,8 +1040,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "4ece08a88f906b7d4502b9e2abee069b8a09a89b022f353d5f8fe70c034427f3"
+python-versions = "^3.9"
+content-hash = "9660aade37b1b606c0c4138025c2af69c655674389f95790b04530cfa7b1b865"
 
 [metadata.files]
 absl-py = []
@@ -1107,29 +1050,29 @@ attrs = []
 certifi = []
 chardet = []
 cloudpickle = []
+cmake = []
 colorama = []
 contourpy = []
 cycler = []
 deepdiff = []
 docopt = []
+einops = []
 enum34 = []
 filelock = []
 fonttools = []
-fsspec = []
 future = []
 gitdb = []
 gitpython = []
 gym = []
 idna = []
 imageio = []
-intel-openmp = []
 jinja2 = []
 jsonpickle = []
 kiwisolver = []
 lbforaging = []
+lit = []
 markupsafe = []
 matplotlib = []
-mkl = []
 mock = []
 more-itertools = []
 mpmath = []
@@ -1137,18 +1080,17 @@ mpyq = []
 munch = []
 networkx = []
 numpy = []
-nvidia-cublas-cu12 = []
-nvidia-cuda-cupti-cu12 = []
-nvidia-cuda-nvrtc-cu12 = []
-nvidia-cuda-runtime-cu12 = []
-nvidia-cudnn-cu12 = []
-nvidia-cufft-cu12 = []
-nvidia-curand-cu12 = []
-nvidia-cusolver-cu12 = []
-nvidia-cusparse-cu12 = []
-nvidia-nccl-cu12 = []
-nvidia-nvjitlink-cu12 = []
-nvidia-nvtx-cu12 = []
+nvidia-cublas-cu11 = []
+nvidia-cuda-cupti-cu11 = []
+nvidia-cuda-nvrtc-cu11 = []
+nvidia-cuda-runtime-cu11 = []
+nvidia-cudnn-cu11 = []
+nvidia-cufft-cu11 = []
+nvidia-curand-cu11 = []
+nvidia-cusolver-cu11 = []
+nvidia-cusparse-cu11 = []
+nvidia-nccl-cu11 = []
+nvidia-nvtx-cu11 = []
 ordered-set = []
 packaging = []
 pbr = []
@@ -1179,11 +1121,10 @@ SMAC = []
 smmap = []
 snakeviz = []
 sympy = []
-tbb = []
 tensorboard-logger = []
 tomli = []
 torch = []
-torchvision = []
+torch-scatter = []
 tornado = []
 triton = []
 typing-extensions = []
