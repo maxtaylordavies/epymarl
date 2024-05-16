@@ -45,6 +45,7 @@ wrapt = "1.10.11"
 smac = {git = "https://github.com/oxwhirl/smac.git"}
 einops = "^0.8.0"
 torch-scatter = "^2.1.2"
+pyglet = "1.5.11"
 
 [tool.poetry.dev-dependencies]
 

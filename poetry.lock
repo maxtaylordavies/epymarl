@@ -633,11 +633,11 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pyglet"
-version = "2.0.15"
-description = "pyglet is a cross-platform games and multimedia package."
+version = "1.5.11"
+description = "Cross-platform windowing and multimedia library"
 category = "main"
 optional = false
-python-versions = ">=3.8"
+python-versions = "*"
 
 [[package]]
 name = "pyparsing"
@@ -1041,7 +1041,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "9660aade37b1b606c0c4138025c2af69c655674389f95790b04530cfa7b1b865"
+content-hash = "6ee08937048abb8ba2a673431da9a282d6b783e9154553bfbdb4e84394db66bc"
 
 [metadata.files]
 absl-py = []
