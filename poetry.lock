@@ -308,22 +308,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "lbforaging"
-version = "1.1.1"
-description = "Level Based Foraging Environment"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-gym = ">=0.12"
-numpy = "*"
-pyglet = "*"
-
-[package.extras]
-test = ["pytest"]
-
-[[package]]
 name = "lit"
 version = "18.1.4"
 description = "A Software Testing Tool"
@@ -1041,7 +1025,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "6ee08937048abb8ba2a673431da9a282d6b783e9154553bfbdb4e84394db66bc"
+content-hash = "7ebbb78aff6d4da067452d7f19ac0fddabe286ea30bd8d489947336e131ab08e"
 
 [metadata.files]
 absl-py = []
@@ -1069,7 +1053,6 @@ imageio = []
 jinja2 = []
 jsonpickle = []
 kiwisolver = []
-lbforaging = []
 lit = []
 markupsafe = []
 matplotlib = []
